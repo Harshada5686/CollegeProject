@@ -23,11 +23,12 @@ const postMethods = (data) => {
         postElement.innerHTML = ` 
         <img src=${postData.image}
         alt="no image from this url"
-        style="width: 100%;height: 200px;object-fit: cover;"
-        >
-        <h3 class="card-heading">${postData.book_name}</h3>
+        style="width: 100%;height: 200px;object-fit: cover;">
+        <h3 class="card-heading">${postData.name}</h3>
+        <p class="card-heading">${postData.language}</p>
         <p class="card-body"> ${postData.description.substring(0,30)}</p>
-        <p class="card-body">${postData.book_price}</p>
+        <p class="card-body">${postData.number_of_pages}</p>
+        <p class="card-body">${postData.price}</p>
         `
         postContainer.appendChild(postElement)
     })

@@ -40,7 +40,7 @@
     font-weight: 700;
 }
 .main{
-    background: url(../images/handsomecopy.jpg)no-repeat;
+    background: url(../images/maxresdefault.jpg)no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: 50% 50%;
@@ -49,6 +49,7 @@
 .main h1{
     font-size: 4rem;
     font-weight: 700;
+    color: #fff;
 
 }
 .btn1{
@@ -75,10 +76,11 @@ h1{
 transition: 0.5s;
 }
 .apple{
-    background:linear-gradient(rgba(0,0,0,0.2),#1B3764),url(../images/main1copy.jpg)no-repeat;
+    background:linear-gradient(rgba(0,0,0,0.2),#1B3764),url(../images/Photo.png)no-repeat;
     background-size: cover;
-    height: 80vh;
+    height: 50vh;
     width: 100%;
+    /* background: #1B3764; */
 }
 .apple .h1{
     font-family:'Lobster',cursive ;
@@ -93,7 +95,7 @@ transition: 0.5s;
     height: 45px;
     width: 100px;
     background: #FFCA42;
-    margin-left: -10px;
+    margin-left:5px;
     border: 2px solid white;
     font-weight: 600;
 }
@@ -119,3 +121,52 @@ transition: 0.5s;
     cursor: pointer;
     padding-right: 5px;
 }
+.subscribe .container{
+    background-color: #FFCA42;
+    color: #fff;
+}
+.subscribe::placeholder{
+    color: white;
+
+}
+.subscribe input{
+    height: 45px;
+    width: 55%;
+    border: 2px solid white;
+    outline: none;
+    background: #fff;
+    color: white;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.subscribe button{
+    background: #1B3764;
+    color: #fff;
+}
+
+
+/* Dynamic card css*/
+/* .card-container{
+    width: 80%;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+    
+    flex-wrap:wrap;
+}
+.card{
+    padding: 1rem;
+    box-shadow: 0 0 .4rem .4rem rgb(0,0,0,0.2);
+    transition: .4s ease-in;
+    }
+.card:hover{
+    background: rgb(226, 226, 226);
+}
+.card-heading{
+    color: tomato;
+    margin-bottom: .5rem;
+}
+.card-body{
+    color:black;
+} */
