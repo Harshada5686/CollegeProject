@@ -2,12 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins';
+    
 }
-.navbar-brand{
+/* .navbar-brand{
     font-size: 2.5rem;
     color: black;
-    /* font-family:'Poppins'; */
 }
 .navbar-brand:hover{
     color: black;
@@ -28,7 +27,7 @@
     border: 2px solid #1B3764;
     outline: none;
     margin-right: -30px;
-}
+} */
 .btn0{
     height: 40px;
     width: 40%;
@@ -40,17 +39,22 @@
     font-weight: 700;
 }
 .main{
-    background: url(../images/maxresdefault.jpg)no-repeat;
-    background-size: cover;
+    /* background: url(../images/maxresdefault.jpg)no-repeat;
+    background-size: cover; */
     height: 100vh;
-    background-position: 50% 50%;
+    /* background-position: 50% 50%; */
     width: 100%;
+    background: #1B3764;
 }
 .main h1{
     font-size: 4rem;
     font-weight: 700;
     color: #fff;
 
+}
+.main image{
+    width: 592px;
+    height: fit-content;
 }
 .btn1{
     height: 45px;
@@ -78,7 +82,7 @@ transition: 0.5s;
 .apple{
     background:linear-gradient(rgba(0,0,0,0.2),#1B3764),url(../images/Photo.png)no-repeat;
     background-size: cover;
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     /* background: #1B3764; */
 }
@@ -146,7 +150,7 @@ transition: 0.5s;
 
 
 /* Dynamic card css*/
-/* .card-container{
+.card-container{
     width: 80%;
     margin: 4rem auto;
     display: grid;
@@ -169,4 +173,4 @@ transition: 0.5s;
 }
 .card-body{
     color:black;
-} */
+}

@@ -2,7 +2,7 @@ let storeData = [];
 
 const getBooksData = () => {
 
-    fetch('https://fake-book-store-api.onrender.com/api/books')
+    fetch('https://fake-book-store-api.onrender.com/api/books?limit=4')
         .then(res => res.json())
         .then(json => {
             // Store the API response in the variable
@@ -13,21 +13,36 @@ const getBooksData = () => {
         });
 }
 
-const postContainer = document.querySelector('.card-container');
+const postContainer = document.querySelector('.container1');
 
 const postMethods = (data) => {
     data.map((postData) => {
         console.log(postData);
         const postElement = document.createElement('div');
-        postElement.classList.add('card');
+
         postElement.innerHTML = ` 
-        <img src=${postData.image}
-        alt="no image from this url"
-        style="width: 100%;height: 200px;object-fit: cover;"
-        >
-        <h3 class="card-heading">${postData.book_name}</h3>
-        <p class="card-body"> ${postData.description.substring(0,30)}</p>
-        <p class="card-body">${postData.book_price}</p>
+        <div class="container">
+    
+        <div class="container">
+
+        
+            <div class="card shadow-sm">
+              <img src="../Images/Book (1).png" class="bd-placeholder-img card-img-top" width="100%" height="325" alt="nothing">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+        
+          </div>
+          
+        </div>
+      </div>
         `
         postContainer.appendChild(postElement)
     })

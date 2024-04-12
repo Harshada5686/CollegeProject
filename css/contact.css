@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#navigationBar{
+    background-color:#1B3764;
+    color: #fff;
+}
+.navbar-brand{
+    font-size:22px; 
+}
+.navbar-brand span{
+    color: #fff;
+    font-weight:700;
+    font-family: 'Poppins';
+}
+.nav-link{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+.nav-link:hover{
+    background:#FFCA42;
+    border-radius: 10px 10px;
+    color: #1B3764;
+}
+
+.news{
+    background-color: #1B3764;
+    color: #fff;
+
+}
+.btn1{
+    height: 45px;
+    width: 15%;
+    border: none;
+    outline: none;
+    background-color:#FFCA42 ;
+    color: #1B3764;
+    font-weight: 700;
+    border-radius: 60px;
+}
+.news p{
+    margin: 0;
+}
+.fab{
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding-right: 5px;
+}
+.subscribe .container{
+    background-color: #FFCA42;
+    color: #fff;
+}
+.subscribe::placeholder{
+    color: white;
+
+}
+.subscribe input{
+    height: 45px;
+    width: 55%;
+    border: 2px solid white;
+    outline: none;
+    background: #fff;
+    color: white;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.subscribe button{
+    background: #1B3764;
+    color: #fff;
+}
+.btn2{
+    height: 45px;
+    width: 100px;
+    background: #FFCA42;
+    margin-left:5px;
+    border: 2px solid white;
+    font-weight: 600;
+}
+
