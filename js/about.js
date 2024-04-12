@@ -26,11 +26,11 @@ const postMethods = (data) => {
             <div class="card shadow-sm" style="width:18rem;">
               <img src="${postData.image}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="nothing">
               <div class="card-body">
-              <h5 class="card-heading">${postData.name}</h5>
-              <p class="card-text">${postData.description.substring(0,30)}...</p>
+                <h5 class="card-heading m-0">${postData.name.substring(0,10)}...</h5>
+                <p class="card-text m-0">${postData.description.substring(0,40)}...</p>
 
-                <p class="card-text">Language: ${postData.language}</p>
-              <p class="card-body">₹${postData.price}</p>
+                <p class="card-text m-0">Language: ${postData.language}</p>
+                <p class="card-text ">₹${postData.price}</p>
 
                 <button class="btn-primary">Order Today</button>
 
