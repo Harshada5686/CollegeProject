@@ -12,24 +12,31 @@ const getBooksData = () => {
         });
 }
 
-const postContainer = document.querySelector('.card-container');
+const postContainer = document.querySelector('.container1');
 
 const postMethods = (data) => {
-    data.map((postData) => {
-        console.log(postData);
-        const postElement = document.createElement('div');
-        postElement.classList.add('card');
-        postElement.classList.add('card-body');
+  data.map((postData) => {
+    console.log(postData);
+    const postElement = document.createElement('div');
 
         postElement.innerHTML = ` 
-        <img src=${postData.image}
-        alt="no image from this url"
-        style="width: 100%;height: 200px;object-fit: cover;">
-        <h3 class="card-heading">${postData.name}</h3>
-        <p class="card-body">Language: ${postData.language}</p>
-        <p class="card-body"> ${postData.description.substring(0,30)} <span class="badge bg-secondary">Read more</span></p>
-        <p class="card-body">${postData.number_of_pages} Pages</p>
-        <p class="card-body">₹${postData.price}</p>
+        <div class="container">
+        <div class="container">
+            <div class="card shadow-sm" style="width:18rem;">
+              <img src="${postData.image}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="nothing">
+              <div class="card-body">
+                <h5 class="card-heading m-0">${postData.name.substring(0,10)}...</h5>
+                <p class="card-text m-0">${postData.description.substring(0,40)}...</p>
+
+                <p class="card-text m-0">Language: ${postData.language}</p>
+                <p class="card-text ">₹${postData.price}</p>
+
+                <button class="btn btn-outline-warning">Order Today</button>
+
+              </div>
+          </div>
+        </div>
+      </div>
         `
         postContainer.appendChild(postElement)
     })

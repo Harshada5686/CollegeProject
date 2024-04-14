@@ -18,6 +18,87 @@
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
 
     <title>BookHubWebSite.com</title>
+    <?php
+     $servername = "localhost";
+     $uname = "root";
+     $password = "";
+     $database = "book_website";
+
+     $error_email = $error_password =$error_confirmpassword ="";
+     $conn = new mysqli($servername, $uname, $password, $database);
+
+     
+     if ($_SERVER["REQUEST_METHOD"] == "POST")
+      {
+        $email =$_POST['email'];
+        $password = $_POST['password'];
+        $confirmpassword = $_POST['confirmpassword'];
+     if(empty($email)) {
+        $error_email = "Email is required";
+    }
+
+    // Check if username is empty
+    if(empty($password)) {
+        $error_password = "Password is required";
+
+    }
+    if(empty($confirmpassword)) {
+        $error_confirmpassword = "Confirmpassword is required";
+
+    }
+    if (empty($error_email) && empty($error_password) && empty($error_confirmpassword) ) 
+    {
+        
+        if (isset($_POST["login"])) 
+        {
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST")
+             {
+                $sql = "INSERT INTO login (Email,Password) VALUES ('$email', '$password')";
+        
+                if ($conn->query($sql) === TRUE) 
+                {
+                    echo '<script type="text/javascript">';
+                    echo ' alert("Login successfully!!")';  //not showing an alert box.
+                    echo '</script>';
+
+                    header("Location: marks.php");
+                    exit();
+
+
+                } else {
+                    echo '<script type="text/javascript">';
+                    echo ' alert("faild")';  
+                    echo '</script>';
+                }
+            }
+        
+        } 
+        else if (isset($_POST["signup"])) 
+        {
+            if ($_SERVER["REQUEST_METHOD"] == "POST")
+             {
+                $sql = "INSERT INTO signup (Email,Password,Confirmpassword) VALUES ('$email', '$password','$confirmpassword')";
+        
+                if ($conn->query($sql) === TRUE) 
+                {
+                    echo '<script type="text/javascript">';
+                    echo ' alert("Sign up successfully!!")';  //not showing an alert box.
+                    echo '</script>';
+
+                    header("Location: marks.php");
+                    exit();
+                } else {
+                    echo '<script type="text/javascript">';
+                    echo ' alert("faild")';  
+                    echo '</script>';
+                }
+            }
+        }
+    }
+}
+    $conn->close();
+    ?>
 </head>
 
 <body>
@@ -73,16 +154,16 @@
                     <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <div class="mx-2">
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                    
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
+                    <button class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+
+                    <button class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
                 </div>
             </div>
         </nav>
     </section>
 
     <!-- Login Modal -->
-     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -91,22 +172,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="" class="form" method="POST">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <label for="exampleInputEmail1" class="form-label" >Email address</label>
+
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
+                                <label style="color: red;margin-left:-7px;"><?php echo $error_email ?></label>
+
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1" class="form-label" >Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        <label style="color: red;margin-left:-5px;"><?php echo $error_password ?></label>
+
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary" value="login">Login</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -115,9 +201,9 @@
                 </div>
             </div>
         </div>
-    </div> 
-    
-    
+    </div>
+
+
 
     <!-- Signup modal -->
     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
@@ -128,23 +214,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="" class="form" method="POST">
                         <div class="mb-3">
-                            <label for="exampleInputEmail2" class="form-label">Email address</label>
+                            <label for="exampleInputEmail2" class="form-label" name="email">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail2"
                                 aria-describedby="emailHelp">
+                        <label style="color: red;margin-left:-5px;"><?php echo $error_email ?></label>
+
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2">
+                            <label for="exampleInputPassword1" class="form-label" >Password</label>
+                            <input type="password" class="form-control"name="password" id="exampleInputPassword2">
+                             <label style="color: red;margin-left:-5px;"><?php echo $error_password ?></label>
+
                         </div>
                         <div class="mb-3">
                             <label for="cexampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="cexampleInputPassword1">
+                            <input type="password" name="confirmpassword" class="form-control" id="cexampleInputPassword1">
+                            <label style="color: red;margin-left:-5px;"><?php echo $error_confirmpassword ?></label>
+
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <button type="submit" class="btn btn-primary" value="signup">Create Account</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -218,20 +310,6 @@
         </div>
     </section>
 
-    <!--  -->
-    <section class="featuredsec">
-        <div class="container">
-            <div class="row py-5">
-                <div class="col-lg-8 m-auto text-center">
-                    <h1>Boo</h1>
-                </div>
-            </div>
-            <div class="container1 row row-cols-lg-4 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            </div>
-        </div>
-    </section>
-
-
     <!--  Product -->
     <!-- <section class="productsec">
         <div class="container">
@@ -245,35 +323,154 @@
         </div>
     </section> -->
     <!-- featured Author -->
-    <section class="featuredauthor">
+    <section class="featuredauthor m-5">
         <div class="container">
+            <div class="row py-5">
+                <div class="col-lg-8 m-auto text-center">
+                    <h1>Authors</h1>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-4">
-                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" 
-                   role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-          
-                  <h2>Stephen King</h2>
-                  <p>Stephen King is an American author known for his contributions to contemporary horror, supernatural fiction, suspense, crime, science fiction, and fantasy genres.Beyond his writing, King is also known for his advocacy for literacy, gun control, and political commentary. He resides in Bangor, Maine, with his wife, Tabitha King, who is also a novelist.  </p>
-                  
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-          
-                  <h2>RK Narayan</h2>
-                  <p></p>One of Narayan's most famous works is his debut novel, "Swami and Friends," published in 1935, which introduced readers to the world of Malgudi and its colorful characters. He went on to write numerous novels, short stories, and essays, including "The Bachelor of Arts," "The English Teacher," "The Guide," and "The Man-Eater of Malgudi."</p>
-                  
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-          
-                  <h2>Kiran Desai</h2>
-                  <p>Desai gained widespread acclaim with her second novel, "The Inheritance of Loss," published in 2006. The novel, set in India and the United States, explores the lives of characters grappling with issues of globalization, colonialism, and personal identity. "The Inheritance of Loss" won the Man Booker Prize for Fiction in 2006, propelling Desai into the international literary spotlight.</p>
-                  
+                    <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                        <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
+                      </div>
+
+                    <h2>Stephen King</h2>
+                    <p>Stephen King is an American author known for his contributions to contemporary horror,
+                        supernatural fiction, suspense, crime, science fiction, and fantasy genres.Beyond his writing,
+                        King is also known for his advocacy for literacy, gun control, and political commentary. He
+                        resides in Bangor, Maine, with his wife, Tabitha King, who is also a novelist. </p>
+
                 </div>
-              </div>
+                <div class="col-lg-4">
+                  
+                    <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                        <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
+                      </div>
+
+                    <h2>RK Narayan</h2>
+                    <p></p>One of Narayan's most famous works is his debut novel, "Swami and Friends," published in
+                    1935, which introduced readers to the world of Malgudi and its colorful characters. He went on to
+                    write numerous novels, short stories, and essays, including "The Bachelor of Arts," "The English
+                    Teacher," "The Guide," and "The Man-Eater of Malgudi."</p>
+
+                </div>
+                <div class="col-lg-4">
+                    
+                    <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                        <img src="../images/Author1.png" class="card-img-top img-cover" style="height: 50%; width: 50%;" alt="Raeesh">
+                    </div>
+
+                    <h2>Kiran Desai</h2>
+                    <p>Desai gained widespread acclaim with her second novel, "The Inheritance of Loss," published in
+                        2006. The novel, set in India and the United States, explores the lives of characters grappling
+                        with issues of globalization, colonialism, and personal identity. "The Inheritance of Loss" won
+                        the Man Booker Prize for Fiction in 2006, propelling Desai into the international literary
+                        spotlight.</p>
+
+                </div>
+            </div>
         </div>
     </section>
+    <!-- Customer Review-->
+<div class="customerreview m-5">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-8 m-auto text-center">
+                <h1>Customer Review</h1>
+            </div>
+        </div>
+        <div id="carouselExampleControls" class="carousel slide carousal-dark" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card-wrapper">
+                        <div class="card" style="width:19rem;">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                                <img src="../images/Author1.png" class="card-img-top img-cover img-fluid" alt="Raeesh">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Raeesh Alam</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
+        
+                            </div>
+                        </div>
+                        <div class="card" style="width:19rem;">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                                <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Raeesh Alam</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
+        
+                            </div>
+                        </div>
+                        <div class="card" style="width:19rem;">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                                <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Raeesh Alam</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
+        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-wrapper">
+                        <div class="card" style="width:19rem;">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                                <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Raeesh Alam</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
+        
+                            </div>
+                        </div>
+                        <div class="card" style="width:19rem;">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                                <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Raeesh Alam</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
+        
+                            </div>
+                        </div>
+                        <div class="card" style="width:19rem;">
+                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                                <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Raeesh Alam</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    
+    </div>
+</div>
+
     <!-- Subscribr -->
+
     <section class="subscribe py-5">
         <div class="container py-5">
             <div class="row">
@@ -336,6 +533,7 @@
         </div>
     </section>
 
+   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 

@@ -56,9 +56,9 @@
             if (empty($error_fname) && empty($error_lname)  && empty($error_email)  && empty($error_message)) {
        
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $sql = "INSERT INTO contact (Fname, Lname, Email, Message,) VALUES ('$fname', '$lname', '$email', '$message')";
+                $sql = "INSERT INTO contact (Fname, Lname, Email, Message) VALUES ('$fname', '$lname', '$email', '$message')";
         
-                if ($conn->query($sql) === TRUE) 
+                if ($conn->query($sql) === true) 
                 {
                     echo "<script> alert('Registration successfully!!');window.location.href='login.php';</script>";
                 } else {
@@ -207,6 +207,7 @@
     </div>
     <!-- Form -->
     <section class="contact py-5">
+    <form action="" class="form" method="POST">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-12 m-auto text-center">
@@ -223,14 +224,12 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 ">
                         <input type="text" name="lname" class="form-control bg-light" placeholder="Last Name" >
                         <label style="color: red;margin-left:-110px;"><?php echo $error_lname ?></label>
-
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 py-3">
                         <input type="text" name="email" class="form-control bg-light" placeholder="Email" >
                         <label style="color: red;margin-left:-110px;"><?php echo $error_email ?></label>
-
                     </div>
                 </div>
                 <div class="row">
@@ -241,10 +240,11 @@
 
                     </div>
                 </div>
-                <button class="btn1 offset-lg-5 offset-md-5" type="submit" value="submit" id="button">Submit</button>
+                <button class="btn1 offset-lg-5 offset-md-5" type="submit" value="LOGIN" id="button">Submit</button>
             </div>
             
         </div>
+    </form>
     </section>
     <!-- Subscribe section -->
     <section class="subscribe py-5">
