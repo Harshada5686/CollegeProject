@@ -6,6 +6,7 @@
 #navigationBar{
     background-color:#1B3764;
     color: #fff;
+   
 }
 .navbar-brand{
     font-size:22px; 
@@ -49,7 +50,6 @@
 }
 .subscribe::placeholder{
     color: white;
-
 }
 .subscribe input{
     height: 45px;
@@ -98,4 +98,10 @@
 }
 .card-body{
     color:black;
+}
+.card-wrapper{
+    display: flex;
+}
+.card{
+    margin: auto;
 }

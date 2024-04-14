@@ -32,7 +32,7 @@ const postMethods = (data) => {
                 <p class="card-text m-0">Language: ${postData.language}</p>
                 <p class="card-text ">₹${postData.price}</p>
 
-                <button class="btn-primary">Order Today</button>
+                <button class="btn btn-outline-warning">Order Today</button>
 
               </div>
           </div>
