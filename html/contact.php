@@ -69,7 +69,6 @@
             }
             } 
         }
-        
         $conn->close();
         ?>
 </head>
@@ -165,7 +164,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
                 </div>
             </div>
         </div>
@@ -207,6 +205,7 @@
     </div>
     <!-- Form -->
     <section class="contact py-5">
+    <form action="" class="form" method="POST">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-12 m-auto text-center">
@@ -241,10 +240,12 @@
 
                     </div>
                 </div>
-                <button class="btn1 offset-lg-5 offset-md-5" type="submit" value="submit" id="button">Submit</button>
+                <!-- <input type="submit" value="LOGIN" name="login" > -->
+                <button class="btn1 offset-lg-5 offset-md-5" type="submit" value="LOGIN" id="button">Submit</button>
             </div>
             
         </div>
+    </form>
     </section>
     <!-- Subscribe section -->
     <section class="subscribe py-5">
