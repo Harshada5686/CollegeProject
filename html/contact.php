@@ -69,6 +69,7 @@
             }
             } 
         }
+        
         $conn->close();
         ?>
 </head>
@@ -164,6 +165,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
@@ -227,7 +229,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 py-3">
                         <input type="text" name="email" class="form-control bg-light" placeholder="Email" >
-                        <label style="color: red;margin-left:-110px;"><?php echo $error_email ?></label>
+                        <label style="color: red;margin-left:-5px;"><?php echo $error_email ?></label>
                     </div>
                 </div>
                 <div class="row">
