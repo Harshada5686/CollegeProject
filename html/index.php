@@ -1,41 +1,42 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Welcome to iCoder. A blog for coding enthusiasts">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <link rel="stylesheet" href="../css/index.css">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
-
     <title>BookHubWebSite.com</title>
     <?php
      $servername = "localhost";
      $uname = "root";
      $password = "";
      $database = "book_website";
+     $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
 
      $error_email = $error_password =$error_confirmpassword ="";
      $conn = new mysqli($servername, $uname, $password, $database);
-
-     
      if ($_SERVER["REQUEST_METHOD"] == "POST")
       {
         $email =$_POST['email'];
         $password = $_POST['password'];
         $confirmpassword = $_POST['confirmpassword'];
-     if(empty($email)) {
-        $error_email = "Email is required";
-    }
+        if(empty($_POST['email'])) 
+        {
+            $error_email = "Email is required";
+        }
+        else if (preg_match($pattern, $_POST['email'])){
+            $error_email = "";
+        }
+        else{
+            $error_email = "Please enter valid email id";
+        }
 
     // Check if username is empty
     if(empty($password)) {
@@ -120,26 +121,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item nav">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item nav">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
 
                     <li class="nav-item dropdown nav">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Topics</a>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Technology</a>
-                            <a class="dropdown-item" href="#">Web Development</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Support</a>
-                            <a class="dropdown-item" href="#">Write for us</a>
+                            <a class="dropdown-item" href="store.html">Mystery</a>
+                            <a class="dropdown-item" href="store.html">Biography</a>
+                            <a class="dropdown-item" href="store.html">Fantasy</a>
+                            <a class="dropdown-item" href="store.html">Historical fiction</a>
+                            <a class="dropdown-item" href="store.html">Literary Fiction</a>
+
                         </div>
                     </li>
                     <li class="nav-item nav">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link" href="contact.php">Contact Us</a>
                     </li>
                     <li class="nav-item nav">
                         <a class=" nav-link navbar-brand" href="#">
@@ -262,24 +263,26 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../images/carousalimg1 (1).jpg" class="d-block w-100" alt="...">
+                    <img src="../images/carousalimg13.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <h5>Discover Your Next Literary Adventure</h5>
+                        <p>Unveiling the Top Picks on Our Bookish Haven!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="../images/carousalimg2 (1).jpeg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <h5>Unravel the Pages of Imagination</h5>
+                        <p>Dive Into Our Book Universe Today!</p>
+                       
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="../images/maxresdefault.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h1>Third slide label</h1>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h5>Unlock Worlds Within Pages </h5>
+                        <p>Your Ultimate Destination for Book Lovers Everywhere!</p>
+                        
                     </div>
                 </div>
             </div>
@@ -310,18 +313,8 @@
         </div>
     </section>
 
-    <!--  Product -->
-    <!-- <section class="productsec">
-        <div class="container">
-            <div class="row py-5">
-                <div class="col-lg-8 m-auto text-center">
-                    <h1>Book</h1>
-                </div>
-            </div>
-            <div class="container1 row row-cols-lg-4 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            </div>
-        </div>
-    </section> -->
+     <!-- Product -->
+     
     <!-- featured Author -->
     <section class="featuredauthor m-5">
         <div class="container">
@@ -359,7 +352,7 @@
                 <div class="col-lg-4">
                     
                     <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                        <img src="../images/Author1.png" class="card-img-top img-cover" style="height: 50%; width: 50%;" alt="Raeesh">
+                        <img src="../images/Author3.png" class="card-img-top img-cover"alt="Raeesh">
                     </div>
 
                     <h2>Kiran Desai</h2>
@@ -387,7 +380,7 @@
                     <div class="card-wrapper">
                         <div class="card" style="width:19rem;">
                             <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author1.png" class="card-img-top img-cover img-fluid" alt="Raeesh">
+                                <img src="../images/Review1.JPG" class="card-img-top img-cover img-fluid" alt="Raeesh">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">Raeesh Alam</h5>
@@ -397,10 +390,10 @@
                         </div>
                         <div class="card" style="width:19rem;">
                             <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
+                                <img src="../images/Review2.JPG" class="card-img-top img-cover" alt="Raeesh">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Raeesh Alam</h5>
+                                <h5 class="card-title">Ritik Alam</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the </p>
         
                             </div>
@@ -410,7 +403,7 @@
                                 <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Raeesh Alam</h5>
+                                <h5 class="card-title">Aatesh Khan</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the </p>
         
                             </div>
@@ -422,20 +415,20 @@
                     <div class="card-wrapper">
                         <div class="card" style="width:19rem;">
                             <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
+                                <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Raeesh Alam</h5>
+                                <h5 class="card-title">Divya Shaha</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the </p>
         
                             </div>
                         </div>
                         <div class="card" style="width:19rem;">
                             <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
+                                <img src="../images/Author3.png" class="card-img-top img-cover" alt="Raeesh">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Raeesh Alam</h5>
+                                <h5 class="card-title">Riya Alam</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the </p>
         
                             </div>
@@ -445,7 +438,7 @@
                                 <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Raeesh Alam</h5>
+                                <h5 class="card-title">Priya Alam</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the </p>
         
                             </div>
@@ -469,7 +462,7 @@
     </div>
 </div>
 
-    <!-- Subscribr -->
+    <!-- Subscriber -->
 
     <section class="subscribe py-5">
         <div class="container py-5">
@@ -532,7 +525,6 @@
             <p class="text-center">Copyright 02024 All right reserved</p>
         </div>
     </section>
-
    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

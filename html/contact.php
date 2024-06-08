@@ -22,6 +22,10 @@
         $uname = "root";
         $password = "";
         $database = "book_website";
+        $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+
+        
+    
         $conn = new mysqli($servername, $uname, $password, $database);
 
         $error_fname = $error_lname = $error_email =$error_message = "";
@@ -47,6 +51,12 @@
             if(empty($_POST['email'])) 
             {
                 $error_email = "Email is required";
+            }
+            else if (preg_match($pattern, $_POST['email'])){
+                $error_email = "";
+            }
+            else{
+                $error_email = "Please enter valid email id";
             }
             // Check if password is empty
             if(empty($_POST['message']))
@@ -89,30 +99,29 @@
                             class="d-inline-block align-text-top"><span> BookHub</span></a>
                 </div>
             </nav>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item nav">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item nav">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
 
                     <li class="nav-item dropdown nav">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Topics</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Technology</a>
-                            <a class="dropdown-item" href="#">Web Development</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Support</a>
-                            <a class="dropdown-item" href="#">Write for us</a>
+                            <a class="dropdown-item" href="store.html">Mystery</a>
+                            <a class="dropdown-item" href="store.html">Biography</a>
+                            <a class="dropdown-item" href="store.html">Fantasy</a>
+                            <a class="dropdown-item" href="store.html">Historical fiction</a>
+                            <a class="dropdown-item" href="store.html">Literary Fiction</a>
+
                         </div>
                     </li>
                     <li class="nav-item nav">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link" href="contact.php">Contact Us</a>
                     </li>
                     <li class="nav-item nav">
                         <a class=" nav-link navbar-brand" href="#">
@@ -218,25 +227,25 @@
                 <div class="row ">
                     <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-2 ">
                         <input type="text" name="fname" class="form-control bg-light" placeholder="First Name" >
-                        <label style="color: red;margin-left:-110px;"><?php echo $error_fname ?></label>
+                        <label style="color: red;margin-left:1px;"><?php echo $error_fname ?></label>
                          
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 ">
                         <input type="text" name="lname" class="form-control bg-light" placeholder="Last Name" >
-                        <label style="color: red;margin-left:-110px;"><?php echo $error_lname ?></label>
+                        <label style="color: red;margin-left:1px;"><?php echo $error_lname ?></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 py-3">
                         <input type="text" name="email" class="form-control bg-light" placeholder="Email" >
-                        <label style="color: red;margin-left:-5px;"><?php echo $error_email ?></label>
+                        <label style="color: red;margin-left:1px;"><?php echo $error_email ?></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 py-3">
                         <textarea name="message" class="form-control bg-light" id="" cols="10" rows="5" placeholder="Message"
                             ></textarea>
-                        <label style="color: red;margin-left:-110px;"><?php echo $error_message ?></label>
+                        <label style="color: red;margin-left:1px;"><?php echo $error_message ?></label>
 
                     </div>
                 </div>
