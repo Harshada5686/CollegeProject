@@ -302,7 +302,7 @@
 
     <!-- Featured -->
     <section class="featuredsec">
-        <div class="container">
+        <div class="container1">
             <div class="row py-5">
                 <div class="col-lg-8 m-auto text-center">
                     <h1>Featured Book</h1>
@@ -312,8 +312,18 @@
             </div>
         </div>
     </section>
+    <!-- Product -->
 
-     <!-- Product -->
+    <div class="card-container">
+        <!-- <div class="card">
+            <img src="https://lh3.googleusercontent.com/proxy/EhLK3HV55MlRFT9eu-2e6bBXmh1rfhOwrGGobhsCB7YEwsBXLcUQyBd6P4enNjCbj8Dv2Ni2nYGTZz5AfFK1dcT40CXRHVDKwurXVIVyqEAa5dkUyr3MfD4dqziK27OmnSEcRgw9fH8gMCHFKD8"
+                alt="no image from this url"
+                style="width: 200px;height: 200px;"
+                >
+            <h3 class="card-heading">Card Heading</h3>
+            <p class="card-body">this is card body</p>
+        </div> -->
+    </div>
      
     <!-- featured Author -->
     <section class="featuredauthor m-5">

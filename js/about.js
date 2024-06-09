@@ -1,45 +1,32 @@
-let storeData = [];
 
-const getBooksData = () => {
+const postContainer = document.querySelector('.card-container');
 
-  fetch('https://fake-book-store-api.onrender.com/api/books?limit=4')
-    .then(res => res.json())
-    .then(json => {
-      // Store the API response in the variable
-      storeData = json;
+// Function to handle button click
 
-      console.log(json)
-      postMethods(storeData);
-    });
-}
+    fetch('https://api.itbook.store/1.0/search/mongodb')
+        .then(res => res.json())
+        .then(json => {
+            // Store the API response in the variable
+            data = json.books;
 
-const postContainer = document.querySelector('.container1');
+            console.log('HI',json)
+            postMethods(data);
+        });
 
-const postMethods = (data) => {
-  data.map((postData) => {
-    console.log(postData);
-    const postElement = document.createElement('div');
-
-    postElement.innerHTML = ` 
-        <div class="container">
-        <div class="container">
-            <div class="card shadow-sm" style="width:18rem;">
-              <img src="${postData.image}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="nothing">
-              <div class="card-body">
-                <h5 class="card-heading m-0">${postData.name.substring(0,10)}...</h5>
-                <p class="card-text m-0">${postData.description.substring(0,40)}...</p>
-
-                <p class="card-text m-0">Language: ${postData.language}</p>
-                <p class="card-text ">₹${postData.price}</p>
-
-                <button class="btn btn-outline-warning">Order Today</button>
-
-              </div>
-          </div>
-        </div>
-      </div>
+const postMethods = (data)=>{
+    data.map((postData)=>{
+        console.log(postData)
+        const postElement = document.createElement('div');
+        postElement.classList.add('card');
+        postElement.innerHTML=`
+        <img src=${postData.image}
+        alt="no image from this url"
+        style="width: 100%;height: 200px;object-fit: cover;"
+        >
+        <h3 class="card-heading">${postData.title}</h3>
+        <p class="card-body">${postData.price}</p>
+        
         `
-    postContainer.appendChild(postElement)
-  })
+        postContainer.appendChild(postElement)
+    })
 }
-getBooksData();

@@ -1,7 +1,7 @@
 let storeData = [];
 const getBooksData = () => {
 
-    fetch('https://fake-book-store-api.onrender.com/api/books')
+    fetch('https://api.itbook.store/1.0/search/mongodb')
         .then(res => res.json())
         .then(json => {
             // Store the API response in the variable
@@ -23,7 +23,7 @@ const postMethods = (data) => {
         <div class="container">
         <div class="container">
             <div class="card shadow-sm" style="width:18rem;">
-              <img src="${postData.image}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="nothing">
+              <img src="${postData.books.image}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="nothing">
               <div class="card-body">
                 <h5 class="card-heading m-0">${postData.name.substring(0,10)}...</h5>
                 <p class="card-text m-0">${postData.description.substring(0,40)}...</p>
