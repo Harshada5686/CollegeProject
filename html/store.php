@@ -65,15 +65,12 @@
 
                     header("Location: marks.php");
                     exit();
-
-
                 } else {
                     echo '<script type="text/javascript">';
                     echo ' alert("faild")';  
                     echo '</script>';
                 }
             }
-        
         } 
         else if (isset($_POST["signup"])) 
         {
@@ -86,7 +83,6 @@
                     echo '<script type="text/javascript">';
                     echo ' alert("Sign up successfully!!")';  //not showing an alert box.
                     echo '</script>';
-
                     header("Location: marks.php");
                     exit();
                 } else {
@@ -101,7 +97,6 @@
     $conn->close();
     ?>
 </head>
-
 <body>
     <section id="navigationBar">
         <nav class="navbar navbar-expand-lg ">
@@ -117,7 +112,6 @@
                             class="d-inline-block align-text-top"><span> BookHub</span></a>
                 </div>
             </nav>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item nav">
@@ -136,7 +130,6 @@
                             <a class="dropdown-item" href="store.html">Fantasy</a>
                             <a class="dropdown-item" href="store.html">Historical fiction</a>
                             <a class="dropdown-item" href="store.html">Literary Fiction</a>
-
                         </div>
                     </li>
                     <li class="nav-item nav">
@@ -147,8 +140,6 @@
                             <img src="../images/Cart.png" alt="" width="30" height="24">
                         </a>
                     </li>
-
-
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -248,246 +239,22 @@
         </div>
     </div>
 
-    <!-- carousal -->
-
-    <section id="carousal1">
-
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../images/carousalimg13.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Discover Your Next Literary Adventure</h5>
-                        <p>Unveiling the Top Picks on Our Bookish Haven!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../images/carousalimg2 (1).jpeg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Unravel the Pages of Imagination</h5>
-                        <p>Dive Into Our Book Universe Today!</p>
-                       
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../images/maxresdefault.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Unlock Worlds Within Pages </h5>
-                        <p>Your Ultimate Destination for Book Lovers Everywhere!</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-    </section>
-
     <!-- Featured -->
     <section class="featuredsec">
-        <div class="container1">
+        
             <div class="row py-5">
                 <div class="col-lg-8 m-auto text-center">
-                    <h1>Featured Book</h1>
+                    <h1>Books</h1>
                 </div>
             </div>
-            <div class="container1 row row-cols-lg-4 row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            </div>
-        </div>
+      
     </section>
     <!-- Product -->
 
     <div class="card-container">
-        <!-- <div class="card">
-            <img src="https://lh3.googleusercontent.com/proxy/EhLK3HV55MlRFT9eu-2e6bBXmh1rfhOwrGGobhsCB7YEwsBXLcUQyBd6P4enNjCbj8Dv2Ni2nYGTZz5AfFK1dcT40CXRHVDKwurXVIVyqEAa5dkUyr3MfD4dqziK27OmnSEcRgw9fH8gMCHFKD8"
-                alt="no image from this url"
-                style="width: 200px;height: 200px;"
-                >
-            <h3 class="card-heading">Card Heading</h3>
-            <p class="card-body">this is card body</p>
-        </div> -->
+        
     </div>
-     
-    <!-- featured Author -->
-    <section class="featuredauthor m-5">
-        <div class="container">
-            <div class="row py-5">
-                <div class="col-lg-8 m-auto text-center">
-                    <h1>Authors</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                        <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
-                      </div>
-
-                    <h2>Stephen King</h2>
-                    <p>Stephen King is an American author known for his contributions to contemporary horror,
-                        supernatural fiction, suspense, crime, science fiction, and fantasy genres.Beyond his writing,
-                        King is also known for his advocacy for literacy, gun control, and political commentary. He
-                        resides in Bangor, Maine, with his wife, Tabitha King, who is also a novelist. </p>
-
-                </div>
-                <div class="col-lg-4">
-                  
-                    <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                        <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
-                      </div>
-
-                    <h2>RK Narayan</h2>
-                    <p></p>One of Narayan's most famous works is his debut novel, "Swami and Friends," published in
-                    1935, which introduced readers to the world of Malgudi and its colorful characters. He went on to
-                    write numerous novels, short stories, and essays, including "The Bachelor of Arts," "The English
-                    Teacher," "The Guide," and "The Man-Eater of Malgudi."</p>
-
-                </div>
-                <div class="col-lg-4">
-                    
-                    <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                        <img src="../images/Author3.png" class="card-img-top img-cover"alt="Raeesh">
-                    </div>
-
-                    <h2>Kiran Desai</h2>
-                    <p>Desai gained widespread acclaim with her second novel, "The Inheritance of Loss," published in
-                        2006. The novel, set in India and the United States, explores the lives of characters grappling
-                        with issues of globalization, colonialism, and personal identity. "The Inheritance of Loss" won
-                        the Man Booker Prize for Fiction in 2006, propelling Desai into the international literary
-                        spotlight.</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Customer Review-->
-<div class="customerreview m-5">
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-lg-8 m-auto text-center">
-                <h1>Customer Review</h1>
-            </div>
-        </div>
-        <div id="carouselExampleControls" class="carousel slide carousal-dark" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card-wrapper">
-                        <div class="card" style="width:19rem;">
-                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Review1.JPG" class="card-img-top img-cover img-fluid" alt="Raeesh">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Raeesh Alam</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
-        
-                            </div>
-                        </div>
-                        <div class="card" style="width:19rem;">
-                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Review2.JPG" class="card-img-top img-cover" alt="Raeesh">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Ritik Alam</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
-        
-                            </div>
-                        </div>
-                        <div class="card" style="width:19rem;">
-                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author1.png" class="card-img-top img-cover" alt="Raeesh">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Aatesh Khan</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
-        
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper">
-                        <div class="card" style="width:19rem;">
-                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Divya Shaha</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
-        
-                            </div>
-                        </div>
-                        <div class="card" style="width:19rem;">
-                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author3.png" class="card-img-top img-cover" alt="Raeesh">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Riya Alam</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
-        
-                            </div>
-                        </div>
-                        <div class="card" style="width:19rem;">
-                            <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
-                                <img src="../images/Author2.png" class="card-img-top img-cover" alt="Raeesh">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Priya Alam</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the </p>
-        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    
-    </div>
-</div>
-
     <!-- Subscriber -->
-
-    <section class="subscribe py-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-9 m-auto text-center">
-                    <h1>Read a free chapter</h1>
-                    <p>Making this the first true value generator on the Internet. It of over 200 Latin words, combined
-                        with a
-                        handful.</p>
-                    <input type="text" class="px-3" placeholder="Enter Your Email">
-                    <button class="btn2">Subscribe</button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="news py-5">
         <div class="container py-5">
@@ -539,7 +306,7 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <script src="../js/index.js"></script>
+    <script src="../js/demo.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>

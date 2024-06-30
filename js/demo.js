@@ -7,8 +7,9 @@ fetch('https://api.itbook.store/1.0/search/mongodb')
     .then(res => res.json())
     .then(json => {
         // Store the API response in the variable
-        data = json.books.slice(0, 4);
+        data = json.books;
 
+        console.log('HI', json)
         postMethods(data);
     });
 
