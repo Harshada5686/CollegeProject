@@ -124,11 +124,11 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="store.html">Mystery</a>
-                            <a class="dropdown-item" href="store.html">Biography</a>
-                            <a class="dropdown-item" href="store.html">Fantasy</a>
-                            <a class="dropdown-item" href="store.html">Historical fiction</a>
-                            <a class="dropdown-item" href="store.html">Literary Fiction</a>
+                            <a class="dropdown-item" href="store.php">Mystery</a>
+                            <a class="dropdown-item" href="store.php">Biography</a>
+                            <a class="dropdown-item" href="store.php">Fantasy</a>
+                            <a class="dropdown-item" href="store.php">Historical fiction</a>
+                            <a class="dropdown-item" href="store.php">Literary Fiction</a>
                         </div>
                     </li>
                     <li class="nav-item nav">
